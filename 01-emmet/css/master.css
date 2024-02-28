@@ -36,7 +36,7 @@ main{
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-
+    
     header{
         h1, h2{
             color: #fff9;
@@ -78,15 +78,18 @@ main{
                 transition: all .5s ease-in;
             }
         }
-
+        
         a:hover{
             transform: translate(10px);
             background-color: #000;
         }
-
+        
         a:hover i{
             transform: scale(1.2) rotate(360deg);
         }
+    }
+    .seccion{
+        width: 1000px;
     }
     section{
         border-radius: 10px;
@@ -109,6 +112,8 @@ main{
             color: #fff9;
             padding: 0 10px 10px 10px;
         }
+        
+        
     }
 }
 
