@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 
-body{background-color: #FF8E21;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 800'%3E%3Cg %3E%3Ccircle fill='%23FF8E21' cx='400' cy='400' r='600'/%3E%3Ccircle fill='%23e0781f' cx='400' cy='400' r='500'/%3E%3Ccircle fill='%23c1631b' cx='400' cy='400' r='400'/%3E%3Ccircle fill='%23a25017' cx='400' cy='400' r='300'/%3E%3Ccircle fill='%23843d12' cx='400' cy='400' r='200'/%3E%3Ccircle fill='%23662C0C' cx='400' cy='400' r='100'/%3E%3C/g%3E%3C/svg%3E");
+body{background-color: #32FF5C;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 800'%3E%3Cg %3E%3Ccircle fill='%2332FF5C' cx='400' cy='400' r='600'/%3E%3Ccircle fill='%234ae256' cx='400' cy='400' r='500'/%3E%3Ccircle fill='%2354c652' cx='400' cy='400' r='400'/%3E%3Ccircle fill='%2357ab4d' cx='400' cy='400' r='300'/%3E%3Ccircle fill='%2356914a' cx='400' cy='400' r='200'/%3E%3Ccircle fill='%23527746' cx='400' cy='400' r='100'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
     background-attachment: fixed;
     background-size: cover;
     font-family: Poppins, sans-serif;
@@ -67,7 +69,7 @@ main{
             width: 280px;
             transition: all .5s ease-in;
             i{
-                background-color: #ee5522;
+                background-color: #12811c;
                 font-style: normal;
                 width: 34px;
                 height: 34px;
