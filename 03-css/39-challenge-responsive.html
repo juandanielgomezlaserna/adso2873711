@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge Responsive</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap');
+        * {
+            transition: all 0.2s ease-in;
+        }
+        body{
+            background-color: #000;
+            color: #fffc;
+            font-family: Poppins, sans-serif;
+            font-weight: 400;
+        }
+        main{
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        main header figure.logo{
+            background: url(images/hollow-knight-logo.webp) no-repeat center;
+            margin: 0 auto;
+            width: 919px;
+            height: 354px;
+        }
+        section.cajas{
+            padding: 0;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            div.contenedor{
+                display: flex;
+            }
+            div.caja{
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                width: 400px;
+                height: 400px;
+                align-items: center;
+                div.top{
+                    background: url(images/border-top.png) no-repeat center;
+                    width: 320px;
+                    height: 100px;
+                }
+                div.image{
+                    margin: 0;
+                    padding: 0;
+                    width: 300px;
+                    height: 300px;
+                    display: flex;
+                    flex-direction: column-reverse;
+                    text-align: center;
+                    p{
+                        font-size: 1rem;
+                        color: white;
+                        background-color: #0009;
+                        width: 100%;
+                        height: 50px;
+                        justify-content: center;
+                        margin: 0;
+                    }
+                    p:hover{
+                        height: 100px;
+                    }
+                }
+                div.bottom{
+                    background: url(images/border-bottom.png) no-repeat center;
+                    width: 520px;
+                    height: 120px;
+                    transform: scale(0.7);
+                }
+            }
+            div.caja1 div.image{
+                background: url(images/personaje01.webp) no-repeat center;
+                background-size: 300px;
+            }
+            div.caja2 div.image{
+                background: url(images/personaje02.webp) no-repeat center;
+                background-size: 300px;
+            }
+            div.caja3 div.image{
+                background: url(images/personaje03.jpg) no-repeat center;
+                background-size: 300px;
+            }
+            div.caja4 div.image{
+                background: url(images/personaje04.webp) no-repeat center;
+                background-size: 300px;
+            }
+            section.parrafos{
+                display: flex;
+                flex-direction: column;
+            }
+
+        }
+        section.parrafos{
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 85%;
+        }
+        section.parrafos div.caja{
+            display: flex;
+            gap: 1rem;
+            height: 300px;
+            align-items: center;
+            background: #333;
+            background-size: 100%;
+            border: 2px #fffc dashed;
+            div.imagen{
+                width: 400px;
+                height: 100%;
+                display: flex;
+            }
+            div.imagen{
+                width: 300px;
+                height: 300px;
+                justify-content: left;
+            }
+            div.imagen1{
+                background: url(images/personaje01.webp) no-repeat center;
+                background-size: 100%;
+            }
+            div.imagen2{
+                background: url(images/personaje02.webp) no-repeat center;
+                background-size: 100%;
+            }
+            div.texto{
+                width: 70%;
+                justify-content: left;
+                h2, p{
+                    width: 70%;
+                }
+            }
+        }
+        @media (max-width: 1024px){
+            main header figure.logo{
+                align-items: center;
+                background: url(images/hollow-knight-logo.webp) no-repeat center;
+                transform: scale(0.8);
+            }
+            section.cajas{
+                width: 800px;
+                height: auto;
+                div.caja{
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+            section.parrafos{
+                div.caja{
+                    height: 250px;
+                    div.texto{
+                        overflow: scroll;
+                    }
+                }
+            }
+        }
+        @media (max-width: 780px){
+            main header figure.logo{
+                align-items: center;
+                background: url(images/hollow-knight-logo.webp) no-repeat center;
+                transform: scale(0.5);
+            }
+            section.cajas{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        </style>
+</head>
+<body>
+    <main>
+        <header>
+            <figure class="logo"></figure>
+        </header>
+        <section class="cajas">
+            <div class="caja caja1">
+                <div class="top"></div>
+                <div class="image">
+                    <p>El caballero</p>
+                </div>
+                <div class="bottom"></div>
+            </div>
+            <div class="caja caja2">
+                <div class="top"></div>
+                <div class="image">
+                    <p>Hornet</p>
+                </div>
+                <div class="bottom"></div>
+            </div>
+            <div class="caja caja3">
+                <div class="top"></div>
+                <div class="image">
+                    <p>Radiance</p>
+                </div>
+                <div class="bottom"></div>
+            </div>
+            <div class="caja caja4">
+                <div class="top"></div>
+                <div class="image">
+                    <p>Cornifer</p>
+                </div>
+                <div class="bottom"></div>
+            </div>
+        </section>
+        <section class="parrafos">
+            <div class="caja caja1">
+                <div class="imagen imagen1"></div>
+                <div class="texto">
+                    <h2>El caballero</h2>
+                    <p>Caballero es el personaje principal del juego y es el personaje que controlamos a lo largo de Hallownest. El caballero es una vasija nacida del Vacío y fue uno de las muchos recipientes hechos por el Rey Pálido para contener a el Destello. Es proveniente de Hollow Knight</p>
+                </div>
+            </div>
+            <div class="caja caja2">
+                <div class="imagen imagen2"></div>
+                <div class="texto">
+                    <h2>Hornet</h2>
+                    <p>Aparecerá en varias ocasiones mientras el jugador explora la zona. Al llegar al final, se encontrará junto al cadáver de otro receptáculo.</p>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+</body>
+</html>
