@@ -113,11 +113,6 @@
             background-size: 100%;
             border: 2px #fffc dashed;
             div.imagen{
-                width: 400px;
-                height: 100%;
-                display: flex;
-            }
-            div.imagen{
                 width: 300px;
                 height: 300px;
                 justify-content: left;
@@ -145,6 +140,9 @@
                 transform: scale(0.8);
             }
             section.cajas{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                
                 width: 800px;
                 height: auto;
                 div.caja{
@@ -155,8 +153,21 @@
             section.parrafos{
                 div.caja{
                     height: 250px;
+                    div.imagen{
+                        width: 250px;
+                        height: 250px;
+                    }
+                    div.imagen1{
+                        background: url(images/personaje01.webp) no-repeat center;
+                        background-size: 250px;
+                    }
+                    div.imagen2{
+                        background: url(images/personaje02.webp) no-repeat center;
+                        background-size: 250px;
+                    }
                     div.texto{
-                        overflow: scroll;
+                        overflow-y: scroll;
+                        height: 250px;
                     }
                 }
             }
