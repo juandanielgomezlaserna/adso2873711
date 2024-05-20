@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap');
+
+body {
+    background-color: #2E1F00;
+    background-color: #999993;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cg %3E%3Cpolygon fill='%238d7e5b' points='100 57.1 64 93.1 71.5 100.6 100 72.1'/%3E%3Cpolygon fill='%23ac9c77' points='100 57.1 100 72.1 128.6 100.6 136.1 93.1'/%3E%3Cpolygon fill='%238d7e5b' points='100 163.2 100 178.2 170.7 107.5 170.8 92.4'/%3E%3Cpolygon fill='%23ac9c77' points='100 163.2 29.2 92.5 29.2 107.5 100 178.2'/%3E%3Cpath fill='%23CCBB95' d='M100 21.8L29.2 92.5l70.7 70.7l70.7-70.7L100 21.8z M100 127.9L64.6 92.5L100 57.1l35.4 35.4L100 127.9z'/%3E%3Cpolygon fill='%23422f00' points='0 157.1 0 172.1 28.6 200.6 36.1 193.1'/%3E%3Cpolygon fill='%234c3800' points='70.7 200 70.8 192.4 63.2 200'/%3E%3Cpolygon fill='%2357420B' points='27.8 200 63.2 200 70.7 192.5 0 121.8 0 157.2 35.3 192.5'/%3E%3Cpolygon fill='%234c3800' points='200 157.1 164 193.1 171.5 200.6 200 172.1'/%3E%3Cpolygon fill='%23422f00' points='136.7 200 129.2 192.5 129.2 200'/%3E%3Cpolygon fill='%2357420B' points='172.1 200 164.6 192.5 200 157.1 200 157.2 200 121.8 200 121.8 129.2 192.5 136.7 200'/%3E%3Cpolygon fill='%23422f00' points='129.2 0 129.2 7.5 200 78.2 200 63.2 136.7 0'/%3E%3Cpolygon fill='%2357420B' points='200 27.8 200 27.9 172.1 0 136.7 0 200 63.2 200 63.2'/%3E%3Cpolygon fill='%234c3800' points='63.2 0 0 63.2 0 78.2 70.7 7.5 70.7 0'/%3E%3Cpolygon fill='%2357420B' points='0 63.2 63.2 0 27.8 0 0 27.8'/%3E%3C/g%3E%3C/svg%3E");
+    font-family: Poppins, sans-serif;
+}
+
+nav.controls {
+    position: fixed;
+    a:is(:link, :visited) {
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #0009;
+        height: 40px;
+        transform: scale(0.8);
+        opacity: 0.6;
+        padding: 10px;
+        width: 40px;
+        transition: all 0.4s ease-in;
+    }
+    a:is(:hover) {
+        opacity: 1;
+        transform: scale(1);
+    }
+    svg {
+        width: 40px;
+    }
+}
+
+main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    min-height: 100vh;
+
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h1, h2 {
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            background-color: #0009;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        h1 {
+            font-size: 3.4rem;
+            font-weight: 400;
+        }
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 300;
+        }
+        img {
+            border-radius: 50%;
+            background-color: #fff3;
+            width: 160px;
+            border: 10px solid #fff9;
+        }
+    }
+
+    menu {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        gap: 0.4rem;
+        
+        a:is(:link, :visited) {
+            background-color: #0009;
+            border-radius: 50px;
+            display: flex;
+            color: #fffd;
+            gap: 1rem;
+            align-items: center;
+            padding: 1rem;
+            text-decoration: none;
+            transition: all 0.5s ease-in;
+            width: 280px;
+
+            i {
+                background-color: #e8eeaf;
+                border-radius: 20px;
+                color: #0009;
+                font-style: normal;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s ease-in;
+                height: 34px;
+                width: 34px;
+            }
+        }
+
+        a:is(:hover) {
+            transform: translate(-10px);
+            background-color: #000c;
+        }
+
+        a:is(:hover) i {
+            transform: rotate(360deg);
+        }
+
+        h3 {
+            align-self: center;
+            font-size: 2.4rem;
+            color: #fff9;
+        }
+    }
+
+    section {
+        border-radius: 10px;
+        background-color: #0009;
+        color: #0009;
+        padding: 10px;
+        width: 400px;
+        h3 {
+            border-bottom: 2px dotted #fff9;
+            color: #fff9;
+            font-size: 1.6rem;
+            margin: 0;
+            width: fit-content;
+        }
+        p {
+            font-size: 1.4rem;
+            margin: 10px 0;
+            color: #fff9;
+        }
+        xmp {
+            border-radius: 10px;
+            background-color: #0009;
+            color: #fff9;
+            padding: 0 10px 10px 10px;
+        }
+    }
+}
