@@ -42,6 +42,14 @@ main{
     min-height: 100vh;
     
     header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img{
+            border-radius: 50%;
+            width: 160px;
+            border: 10px solid #0009;
+        }
         h1, h2{
             color: #fff9;
             text-align: center;
