@@ -1,1 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
 
+header {
+  align-items: center;
+  box-shadow: 0 0 8px #333;
+  display: flex;
+  font-family: "Arimo", sans-serif;
+  justify-content: space-between;
+  padding-right: 20px;
+  height: 60px;
+}
+
+header ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+header ul li.small_box {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  text-align: center;
+  width: 100px;
+}
+
+header ul li:is(:hover) {
+  background-color: #4e0645;
+  transition: 0.5s ease-in;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.toggle-menu,
+.toggle-menu-label {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  .toggle-menu:checked ~ .menu {
+    display: flex;
+  }
+  .toggle-menu-label {
+    display: block;
+  }
+  header ul li {
+    margin: 10px 0;
+    width: 700px;
+  }
+  header ul li:is(:hover) {
+    background-color: #4e0645;
+    transition: 0.5s ease-in;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  header ul li a {
+    width: 900px;
+  }
+  header ul li.small_box {
+    width: 100%;
+  }
+}
