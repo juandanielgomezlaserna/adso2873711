@@ -81,6 +81,10 @@ main{
         a:hover i{
             transform: scale(1.2) rotate(360deg);
         }
+        a.disabled{
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
     }
 }
 
