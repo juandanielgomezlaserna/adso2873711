@@ -142,6 +142,22 @@
                 }
             }
         }
+        section.section-portfolio{
+            background-color: #E8E8E8;
+        }
+        footer{
+            section.redes{
+                a {
+                    width: 40px;
+                    height: 40px;
+                    div.circulo{
+                        background-color: #666666;
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+        }
         @media (max-width: 1080px){
             .imagen-user{
                 display: none !important;
@@ -164,6 +180,8 @@
                 }
             }
             .section-top{
+
+                background-color: #d9d9d9;
                 p{
                     display: none !important;
                 }
@@ -318,7 +336,61 @@
                 </div>
             </section>
         </section>
+        <a name="portfolio"></a>
+        <section class="section-portfolio d-flex flex-column justify-content-center align-items-center p-5">
+            <section class="titulos d-flex flex-column justify-content-center">
+                <h2 class="titulo1 color-morado d-flex justify-content-center">Portfolio</h2>
+                <p class="titulo3 d-flex justify-content-center">Latest Projects</p>
+            </section>
+            <div id="carouselExampleCaptions" class="carousel slide w-20">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="../images/portfolio/project1.png" class="d-block w-20 img-fluid" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="../images/portfolio/project2.png" class="d-block w-20 img-fluid" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="../images/portfolio/project3.png" class="d-block w-20 img-fluid" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </section>
     </main>
+    <footer class="section-footer d-flex flex-column justify-content-center align-items-center mt-5 gap-4">
+        <section class="user d-flex justify-content-between gap-2 align-items-center justify-content-center">
+            <img class="d-flex align-items-center" src="../images/portfolio/user.png" alt="">
+            <p class="titulo1 d-flex m-0">Juan</p>
+            <p class="titulo1 color-morado m-0">Daniel</p>
+        </section>
+        <section class="redes d-flex">
+            <a href=""><div class="p-1 circulo d-flex justify-content-center rounded-circle"><img src="../images/portfolio/x.png" alt=""></div></a>
+            <a href=""><div class="p-1 circulo d-flex justify-content-center rounded-circle"><img src="../images/portfolio/facebook.png" alt=""></div></a>
+            <a href=""><div class="p-1 circulo d-flex justify-content-center rounded-circle"><img src="../images/portfolio/instagram.png" alt=""></div></a>
+            <a href=""><div class="p-1 circulo d-flex justify-content-center rounded-circle"><img src="../images/portfolio/in.png" alt=""></div></a>
+        </section>
+        <p class="titulo3">juandaniel.aura@gmail.com</p>
+        <section class="links">
+            <a href="">Home</a>
+            <a href="">About</a>
+            <a href="">Services</a>
+            <a href="">Portfolio</a>
+        </section>
+        <p>©All rights reserved 2024</p>
+    </footer>
     <script src="../js/bootstrap.min.js"></script>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
