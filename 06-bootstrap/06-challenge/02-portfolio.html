@@ -132,40 +132,12 @@
         section.section-services{
             background-color: #d9d9d9;
             height: 100vh;
-            width: 100%;
             section.services{
-                width: 70%;
-                height: auto;
-                grid-template-columns: 1fr 1fr 1fr;
                 div.cuadro{
-                    width: auto;
-                    height: auto;
                     div.bg-morado{
-                        display: flex;
-                        width: 80px;
-                        height: 80px;
+                        width: 70px;
+                        height: 70px;
                         border-radius: 25px 25px 0 25px;
-                    }
-                    div div{
-                        width: 100%;
-                    }
-                    div.imagen1{
-                        background: url("../images/portfolio/s1.png") center no-repeat;
-                    }
-                    div.imagen2{
-                        background: url("../images/portfolio/s2.png") center no-repeat;
-                    }
-                    div.imagen3{
-                        background: url("../images/portfolio/s3.png") center no-repeat;
-                    }
-                    div.imagen4{
-                        background: url("../images/portfolio/s4.png") center no-repeat;
-                    }
-                    div.imagen5{
-                        background: url("../images/portfolio/s5.png") center no-repeat;
-                    }
-                    div.imagen6{
-                        background: url("../images/portfolio/s6.png") center no-repeat;
                     }
                 }
             }
@@ -174,12 +146,23 @@
             .imagen-user{
                 display: none !important;
             }
-            section.services{
-                width: 100% !important;
-                grid-template-columns: 1fr 1fr !important;
-            }
         }
         @media (max-width: 740px){
+            section.section-about{
+                section.imagen-user{
+                    align-items: center;
+                    scale: 0.7;
+                }
+            }
+            header{
+                .d-flex.h-100{
+                    display: flex !important;
+                    flex-direction: column !important;
+                    section.info{
+                        width: 100%;
+                    }
+                }
+            }
             .section-top{
                 p{
                     display: none !important;
@@ -204,7 +187,7 @@
                 <p class="text-black m-0 d-flex align-self-center">Juan</p>
                 <p class="m-0 d-flex align-self-center color-morado">Daniel</p>
             </section>
-            <nav class="navbar navbar-expand-lg">
+            <nav class="navbar navbar-expand-md">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -276,48 +259,62 @@
                 <h2 class="titulo1 color-morado">Services</h2>
                 <p class="titulo3">Service | Provide</p>
             </section>
-            <section class="services d-grid justify-content-center gap-4">
-                <div class="cuadro d-flex flex-column bg-white p-3 gap-2">
-                    <div class="bg-morado">
-                        <div class="imagen1"></div>
+            <section class="services h-auto container justify-content-center gap-4">
+                <div class="row">
+                    <div class="cuadro p-1 gap-2 col-lg-4 col-md-6 h-auto">
+                        <div class="bg-white p-3 h-100 d-flex flex-column gap-1">
+                            <div class="bg-morado p-2">
+                                <img class="img-fluid" src="../images/portfolio/s1.png" alt="">
+                            </div>
+                            <h2 class="titulo1">Graphic Design</h2>
+                            <p class="txt-peque">I am creative, detail-oriented, and skilled in graphic design, with experience in modern tools and techniques.</p>
+                        </div>
                     </div>
-                    <h2 class="titulo1">Graphic Design</h2>
-                    <p class="txt-peque">I am creative, detail-oriented, and skilled in graphic design, with experience in modern tools and techniques.</p>
-                </div>
-                <div class="cuadro d-flex flex-column bg-white p-3 gap-2">
-                    <div class="bg-morado">
-                        <div class="imagen2"></div>
+                    <div class="cuadro p-1 gap-2 col-lg-4 col-md-6 h-auto">
+                        <div class="bg-white d-flex flex-column p-3 h-100 gap-2">
+                            <div class="bg-morado p-3 d-flex justify-content-center">
+                                <img class="img-fluid" src="../images/portfolio/s2.png" alt="">
+                            </div>
+                            <h2 class="titulo1">Web Design</h2>
+                            <p class="txt-peque">I'm a skilled programmer, adept in web design with a keen eye for user experience.</p>
+                        </div>
                     </div>
-                    <h2 class="titulo1">Web Design</h2>
-                    <p class="txt-peque">I'm a skilled programmer, adept in web design with a keen eye for user experience.</p>
-                </div>
-                <div class="cuadro d-flex flex-column bg-white p-3 gap-2">
-                    <div class="bg-morado">
-                        <div class="imagen3"></div>
+                    <div class="cuadro p-1 gap-2 col-lg-4 col-md-6 h-auto">
+                        <div class="bg-white d-flex flex-column p-3 h-100 gap-2">
+                            <div class="bg-morado p-2 d-flex justify-content-center">
+                                <img class="img-fluid" src="../images/portfolio/s3.png" alt="">
+                            </div>
+                            <h2 class="titulo1">UI/UX Design</h2>
+                            <p class="txt-peque">I excel in UI/UX design, crafting intuitive interfaces that prioritize user satisfaction and functionality.</p>
+                        </div>
                     </div>
-                    <h2 class="titulo1">UI/UX Design</h2>
-                    <p class="txt-peque">I excel in UI/UX design, crafting intuitive interfaces that prioritize user satisfaction and functionality.</p>
-                </div>
-                <div class="cuadro d-flex flex-column bg-white p-3 gap-2">
-                    <div class="bg-morado">
-                        <div class="imagen4"></div>
+                    <div class="cuadro p-1 gap-2 col-lg-4 col-md-6 h-auto">
+                        <div class="bg-white d-flex flex-column p-3 h-100 gap-2">
+                            <div class="bg-morado p-2 d-flex justify-content-center">
+                                <img class="img-fluid" src="../images/portfolio/s4.png" alt="">
+                            </div>
+                            <h2 class="titulo1">Frontend Development</h2>
+                            <p class="txt-peque">I specialize in frontend development, crafting responsive and dynamic interfaces with seamless user interactions.</p>
+                        </div>
                     </div>
-                    <h2 class="titulo1">Frontend Development</h2>
-                    <p class="txt-peque">I specialize in frontend development, crafting responsive and dynamic interfaces with seamless user interactions.</p>
-                </div>
-                <div class="cuadro d-flex flex-column bg-white p-3 gap-2">
-                    <div class="bg-morado">
-                        <div class="imagen5"></div>
+                    <div class="cuadro p-1 gap-2 col-lg-4 col-md-6 h-auto">
+                        <div class="bg-white d-flex flex-column p-3 h-100 gap-2">
+                            <div class="bg-morado p-3 d-flex justify-content-center">
+                                <img src="../images/portfolio/s5.png" alt="">
+                            </div>
+                            <h2 class="titulo1">Business Analysis</h2>
+                            <p class="txt-peque">I am proficient in business analysis, leveraging data to optimize processes and drive strategic decisions.</p>
+                        </div>
                     </div>
-                    <h2 class="titulo1">Business Analysis</h2>
-                    <p class="txt-peque">I am proficient in business analysis, leveraging data to optimize processes and drive strategic decisions.</p>
-                </div>
-                <div class="cuadro d-flex flex-column bg-white p-3 gap-2">
-                    <div class="bg-morado">
-                        <div class="imagen6"></div>
+                    <div class="cuadro p-1 gap-2 col-lg-4 col-md-6 h-auto">
+                        <div class="bg-white d-flex flex-column p-3 h-100 gap-2">
+                            <div class="bg-morado p-3 d-flex justify-content-center">
+                                <img src="../images/portfolio/s6.png" alt="">
+                            </div>
+                            <h2 class="titulo1">Digital Marketing</h2>
+                            <p class="txt-peque">I excel in digital marketing, employing analytics to optimize campaigns and enhance online presence effectively.</p>
+                        </div>
                     </div>
-                    <h2 class="titulo1">Digital Marketing</h2>
-                    <p class="txt-peque">I excel in digital marketing, employing analytics to optimize campaigns and enhance online presence effectively.</p>
                 </div>
             </section>
         </section>
