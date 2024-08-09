@@ -16,14 +16,11 @@
         section#seccion1:target, section#seccion2:target, section#seccion3:target{
             display: flex;
         }
-        section#seccion1:target, body:not(:has(:target)) section#seccion1{
-            display: flex;
-        }
     </style>
 </head>
-<body class="bg-black">
+<body class="bg-[url(images/bg.webp)]">
     <main class="flex flex-col items-center justify-center p-10">
-        <section id="seccion1" class="tabla tabla1 bg-[#333] w-[442px] h-[787px] rounded-[25px] flex flex-col items-center">
+        <section id="seccion1" class="tabla tabla1 bg-[#333] w-[442px] h-[787px] rounded-[25px] flex flex-col items-center shadow-lg shadow-white">
             <div>
                 <img src="./images/portada.png" alt="">
             </div>
@@ -41,7 +38,7 @@
             </div>
             
         </section>
-        <section id="seccion2" class="tabla tabla2 bg-[#333] w-[442px] h-[787px] rounded-[25px] flex flex-col items-center gap-4">
+        <section id="seccion2" class="tabla tabla2 bg-[#333] w-[442px] h-[787px] rounded-[25px] flex flex-col items-center gap-4 shadow-lg shadow-white">
             <div class="flex items-start w-[80%] mt-5">
                 <a href="#seccion1" class=""><img class="w-[30px] h-[30px]" src="./images/return.png" alt=""></a>
             </div>
@@ -79,7 +76,7 @@
                 <a href="#seccion3"><p class="text-[18px] text-black font-semibold bg-[#FDF3B5] w-[223px] h-[61px] rounded-[17px] flex items-center justify-center">Siguiente</p></a>
             </div>
         </section>
-        <section id="seccion3" class="tabla tabla3 bg-[#333] w-[442px] h-[787px] rounded-[25px] flex flex-col items-center gap-10">
+        <section id="seccion3" class="tabla tabla3 bg-[#333] w-[442px] h-[787px] rounded-[25px] flex flex-col items-center gap-10 shadow-lg shadow-white">
             <div class="flex items-start w-[80%] mt-5">
                 <a href="#seccion2" class=""><img class="w-[30px] h-[30px]" src="./images/return.png" alt=""></a>
             </div>
