@@ -1,0 +1,30 @@
+<svg width="700" height="112" viewBox="0 0 700 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M669 84.5C669 75.9396 675.94 69 684.5 69C693.06 69 700 75.9396 700 84.5V112H669V84.5Z" fill="#346836"/>
+<path d="M433 56C433 25.0721 458.072 0 489 0H589C619.928 0 645 25.0721 645 56V112H433V56Z" fill="#346836"/>
+<line x1="512.403" y1="47.9309" x2="532.266" y2="61.4012" stroke="white" stroke-width="5"/>
+<line x1="550.485" y1="60.5575" x2="569.574" y2="46.0115" stroke="white" stroke-width="5"/>
+<line y1="-2.5" x2="24" y2="-2.5" transform="matrix(0.658838 -0.752285 -0.752285 -0.658838 512.026 61.7626)" stroke="white" stroke-width="5"/>
+<line y1="-2.5" x2="24" y2="-2.5" transform="matrix(0.659569 0.751644 0.751644 -0.659569 553.63 43.1776)" stroke="white" stroke-width="5"/>
+<line x1="679.66" y1="85.0359" x2="679.528" y2="94.2492" stroke="white" stroke-width="5"/>
+<path d="M688.297 85.0002L688.411 94.2138" stroke="white" stroke-width="5"/>
+<path d="M0 40.5C0 18.1325 18.1325 0 40.5 0C62.8675 0 81 18.1325 81 40.5V112H0V40.5Z" fill="#346836"/>
+<ellipse cx="38" cy="82" rx="5" ry="26" fill="#A61E1E"/>
+<ellipse cx="17" cy="58" rx="5" ry="26" fill="white"/>
+<circle cx="16.5" cy="57.5" r="0.5" fill="#FF0000"/>
+<ellipse cx="58" cy="57" rx="5" ry="26" fill="white"/>
+<circle cx="58.5" cy="57.5" r="0.5" fill="#FF0000"/>
+<path d="M218 68C218 42.5949 238.595 22 264 22H296C321.405 22 342 42.5949 342 68V112H218V68Z" fill="#346836"/>
+<line x1="243.258" y1="69.8552" x2="261.692" y2="64.1871" stroke="white" stroke-width="5"/>
+<line x1="295.568" y1="63.3605" x2="313.338" y2="70.8538" stroke="white" stroke-width="5"/>
+<path d="M163 44C163 32.9543 171.954 24 183 24C194.046 24 203 32.9543 203 44V112H163V44Z" fill="#346836"/>
+<ellipse cx="172.647" cy="66.6371" rx="2.64706" ry="20.8358" fill="white"/>
+<ellipse cx="172.382" cy="66.2364" rx="0.264706" ry="0.400688" fill="#FF0000"/>
+<ellipse cx="194.353" cy="65.8358" rx="2.64706" ry="20.8358" fill="white"/>
+<ellipse cx="194.618" cy="66.2364" rx="0.264706" ry="0.400688" fill="#FF0000"/>
+<path d="M94 76.25C94 65.0662 103.066 56 114.25 56C125.434 56 134.5 65.0662 134.5 76.25V112H94V76.25Z" fill="#346836"/>
+<ellipse cx="114" cy="97.2059" rx="2" ry="10.5" fill="#A61E1E"/>
+<ellipse cx="105.059" cy="87.1176" rx="2.05882" ry="10.7059" fill="white"/>
+<circle cx="104.853" cy="86.9118" r="0.205882" fill="#FF0000"/>
+<ellipse cx="121.941" cy="86.7059" rx="2.05882" ry="10.7059" fill="white"/>
+<circle cx="122.147" cy="86.9118" r="0.205882" fill="#FF0000"/>
+</svg>

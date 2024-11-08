@@ -1,0 +1,24 @@
+<svg width="700" height="112" viewBox="0 0 700 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M669 84.5C669 75.9396 675.94 69 684.5 69C693.06 69 700 75.9396 700 84.5V112H669V84.5Z" fill="#27D32E"/>
+<path d="M433 56C433 25.0721 458.072 0 489 0H589C619.928 0 645 25.0721 645 56V112H433V56Z" fill="#27D32E"/>
+<line x1="577.403" y1="49.9309" x2="597.266" y2="63.4012" stroke="black" stroke-width="5"/>
+<line x1="615.485" y1="62.5575" x2="634.574" y2="48.0115" stroke="black" stroke-width="5"/>
+<circle cx="627.5" cy="67.5" r="2.5" fill="black"/>
+<circle cx="591.5" cy="67.5" r="2.5" fill="black"/>
+<line x1="677.619" y1="82.1282" x2="672.561" y2="89.8305" stroke="black" stroke-width="5"/>
+<path d="M684.925 86.7344L680.075 94.5691" stroke="black" stroke-width="5"/>
+<path d="M0 40.5C0 18.1325 18.1325 0 40.5 0C62.8675 0 81 18.1325 81 40.5V112H0V40.5Z" fill="#27D32E"/>
+<line x1="25.5" y1="47" x2="25.5" y2="71" stroke="black" stroke-width="5"/>
+<line x1="50.5" y1="47" x2="50.5" y2="71" stroke="black" stroke-width="5"/>
+<path d="M218 68C218 42.5949 238.595 22 264 22H296C321.405 22 342 42.5949 342 68V112H218V68Z" fill="#27D32E"/>
+<line x1="243.258" y1="69.8552" x2="261.692" y2="64.1871" stroke="black" stroke-width="5"/>
+<line x1="295.568" y1="63.3605" x2="313.338" y2="70.8538" stroke="black" stroke-width="5"/>
+<path d="M163 44C163 32.9543 171.954 24 183 24C194.046 24 203 32.9543 203 44V112H163V44Z" fill="#27D32E"/>
+<line x1="176.858" y1="60.9285" x2="176.858" y2="79.7857" stroke="black" stroke-width="5"/>
+<line x1="189.204" y1="60.9285" x2="189.204" y2="79.7857" stroke="black" stroke-width="5"/>
+<circle cx="172.5" cy="84.5" r="4.5" fill="#E388E0" fill-opacity="0.63"/>
+<circle cx="194.5" cy="84.5" r="4.5" fill="#E388E0" fill-opacity="0.63"/>
+<path d="M94 76.25C94 65.0662 103.066 56 114.25 56C125.434 56 134.5 65.0662 134.5 76.25V112H94V76.25Z" fill="#27D32E"/>
+<line x1="99.4927" y1="87.0176" x2="111.493" y2="86.9824" stroke="black" stroke-width="5"/>
+<line x1="120.5" y1="79.5" x2="120.5" y2="91.5" stroke="black" stroke-width="5"/>
+</svg>

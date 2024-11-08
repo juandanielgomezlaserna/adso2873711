@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get Elements</title>
     <link rel="stylesheet" href="css/master.css">
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
 
     </style>
@@ -19,10 +18,11 @@
     <main>
         <header>
             <h1>Get Elements</h1>
-            <h2>Description</h2>
+            <h2>Distintas formas de obtener un elemento</h2>
         </header>
         <section class="content">
             <h3>Current Year: <small id="year"></small></h3>
+            <!--  -->
             <ul>
                 <li>Bulbasaur</li>
                 <li>Squirtle</li>
@@ -31,6 +31,14 @@
             </ul>
             <h3 id="numLis"></h3>
             <h3 id="lastLi"></h3>
+            <!--  -->
+            <p class="text">lorem Ipsum Dolor</p>
+            <p class="text">lorem Ipsum Dolor</p>
+            <h3 id="numP"></h3>
+            <!--  -->
+            <button class="btn first">Button 1</button>
+            <button class="btn">Button 2</button>
+            <button class="btn">Button 3</button>
         </section>
     </main>
     <script>
@@ -42,6 +50,17 @@
         const lis = document.getElementsByTagName("li")
         numLis.innerText = "Number Pokemons: " + lis.length
         lastLi.innerText = "Último Pokemon: " + lis[lis.length - 1].innerText
+        //Get Elements By Class Name
+        const ps = document.getElementsByClassName("text")
+        numP.innerHTML = "There are: <small> " + ps.length + " paragraphs" + "</small>"
+        ps[0].style.backgroundColor = "#f006"
+        ps[1].style.backgroundColor = "#f003"
+        // Query Selector(s)
+        const first = document.querySelector(".first")
+        const btns = document.querySelectorAll("button.btn")
+        first.style.color = "#f006"
+        btns[2].style.color = "#0a0"
+        btns[2].style.marginTop = "1rem"
     </script>
 </body>
 </html>
