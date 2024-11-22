@@ -31,6 +31,45 @@
                 color: #c6c6c6;
             }
         }
+        div.query {
+             margin: 0 auto;
+             width: 260px;
+             display: flex;
+             align-items: center;
+             flex-direction: column;
+             gap: 0.4rem;
+             input {
+                background-color: #f0db4f;
+                border: 2px solid #fff;
+                outline: none;
+                padding: 0.4rem;
+                border-radius: 8px;
+                transition: background-color 0.4s ease-in;
+                font-family: 'Poppins';
+                width: 200px;
+                &:focus {
+                    background-color: #fff6;
+                }
+             }
+             h5 {
+                margin: 0;
+                font-size: 1rem;
+             }
+             button {
+                border: none;
+                border-radius: 8px;
+                color: #fff;
+                cursor: pointer;
+                background-color: #0009;
+                font-family: 'Poppins';
+                padding: 0.5rem;
+                transition: background-color 0.4s ease-in;
+                width: 216px;
+                &:hover {
+                    background-color: #000c;
+                }
+             }
+        }
     </style>
 </head>
 <body>
@@ -77,10 +116,15 @@
             <img class="icon" src="" alt="">
             <h3 class="day mx-auto text-black text-[20px] border-none"></h3>
         </section>
+        <div class="query">
+            <h5>Type City:</h5>
+            <input type="text">
+            <button>Show</button>
+        </div>
     </main>
     <script>
-        const url = "http://api.weatherapi.com/v1/current.json?key=4a7996728688470093b153041241511&q=Manizales"
         //Text
+        let q = "Manizales"
         const temp = document.querySelector(".temp")
         const icon = document.querySelector(".icon")
         const date = document.querySelector(".date")
@@ -88,6 +132,8 @@
         const drop = document.querySelector(".drop")
         const cloud = document.querySelector(".cloud")
         const day = document.querySelector(".day")
+        const query = document.querySelector(".query input")
+        const show = document.querySelector(".query button")
         //Section
         const container = document.querySelector(".container")
         //IMGs
@@ -95,8 +141,18 @@
         const timeImg = document.querySelector(".timeImg")
         const dropImg = document.querySelector(".dropImg")
         const cloudImg = document.querySelector(".cloudImg")
-
-        const loadWeather = async () => {
+        
+        show.addEventListener("click", (e) => {
+            e.preventDefault()
+            if (query.value != "") {
+                q = query.value
+                loadWeather(q)
+                query.value = ""
+            }
+        })
+        
+        const loadWeather = async (q) => {
+            const url = "http://api.weatherapi.com/v1/current.json?key=4a7996728688470093b153041241511&q=" + q
             const response = await fetch(url)
             const data = await response.json()
             temp.textContent = data.current.temp_c + "° C"
@@ -117,7 +173,7 @@
             }
             icon.setAttribute("src", data.current.condition.icon)
         }
-        loadWeather()
+        loadWeather(q)
     </script>
 </body>
 </html>
