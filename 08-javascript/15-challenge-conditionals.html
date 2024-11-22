@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge</title>
+    <link rel="stylesheet" href="css/master.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        section.container{
+            width: 420px;
+            height: 420px;
+            border-radius: 15px;
+            background-color: #D9D9D9;
+        }
+        section h4{
+            font-size: 4rem;
+            text-align: center;
+            margin: 0;
+            font-weight: 500;
+        }
+        section img.icon{
+            display: block;
+            width: 180px;
+            margin: 0 auto;
+            margin-top: -40px;
+        }
+        section.dark{
+            background-color: #333;
+            h4, h3{
+                color: #c6c6c6;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="controls">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1>15- challenge</h1>
+            <h2>Widget weather App</h2>
+        </header>
+        <section class="container">
+            <div class="flex w-full">
+                <div class="flex w-[40%] p-2">
+                    <figure class="flex gap-3 p-2 flex-col">
+                        <img class="dateImg w-[22px]" src="./images/conditionals/date.svg" alt="">
+                        <img class="timeImg w-[22px]" src="./images/conditionals/time.svg" alt="">
+                    </figure>
+                    <figure>
+                        <h3 class="date border-none text-[20px] text-black"></h3>
+                    </figure>
+                </div>
+                <div class="flex flex-col w-[60%] p-2">
+                    <div>
+                        <figure class="flex gap-2">
+                            <h3 class="locate border-none text-[20px] text-black"></h3>
+                        </figure>
+                        <figure class="flex gap-2 justify-between">
+                            <div class="flex">
+                                <img class="dropImg" src="./images/conditionals/drop.svg" alt="">
+                                <h3 class="drop border-none text-[20px] text-black"></h3>
+                            </div>
+                            <div class="flex">
+                                <img class="cloudImg" src="./images/conditionals/cloud.svg" alt="">
+                                <h3 class="cloud border-none text-[20px] text-black"></h3>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <h4 class="temp text-black text-[80px] mt-4"></h4>
+            <img class="icon" src="" alt="">
+            <h3 class="day mx-auto text-black text-[20px] border-none"></h3>
+        </section>
+    </main>
+    <script>
+        const url = "http://api.weatherapi.com/v1/current.json?key=4a7996728688470093b153041241511&q=Manizales"
+        //Text
+        const temp = document.querySelector(".temp")
+        const icon = document.querySelector(".icon")
+        const date = document.querySelector(".date")
+        const locate = document.querySelector(".locate")
+        const drop = document.querySelector(".drop")
+        const cloud = document.querySelector(".cloud")
+        const day = document.querySelector(".day")
+        //Section
+        const container = document.querySelector(".container")
+        //IMGs
+        const dateImg = document.querySelector(".dateImg")
+        const timeImg = document.querySelector(".timeImg")
+        const dropImg = document.querySelector(".dropImg")
+        const cloudImg = document.querySelector(".cloudImg")
+
+        const loadWeather = async () => {
+            const response = await fetch(url)
+            const data = await response.json()
+            temp.textContent = data.current.temp_c + "° C"
+            date.textContent = data.location.localtime
+            locate.textContent = data.location.name + " - " + data.location.country
+            drop.textContent = data.current.humidity
+            cloud.textContent = data.current.cloud
+            if (data.current.is_day == 1) {
+                day.textContent = "Day"
+                container.classList.remove("dark")
+            }else{
+                day.textContent = "Nigth"
+                container.classList.add("dark")
+                dateImg.setAttribute("src", "./images/conditionals/date-dark.svg")
+                timeImg.setAttribute("src", "./images/conditionals/time-dark.svg")
+                dropImg.setAttribute("src", "./images/conditionals/drop-dark.svg")
+                cloudImg.setAttribute("src", "./images/conditionals/cloud-dark.svg")
+            }
+            icon.setAttribute("src", data.current.condition.icon)
+        }
+        loadWeather()
+    </script>
+</body>
+</html>
