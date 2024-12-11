@@ -6,30 +6,135 @@
     <title>Pokedex</title>
     <link rel="stylesheet" href="css/master.css">
     <style>
-        section ul.pokemons {
-            list-style: none;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            padding: 0;
-            display: grid;
-            gap: 0.2rem;
-            grid-template-columns: repeat(4, 1fr);
-            li {
-                border-radius: 4px;
-                height: 100px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: 100px;
-                span {
+        section.container{
+            width: 457px;
+            height: 630px;
+            background: url("./images/pokedex/pokedex.svg") no-repeat center;
+            position: relative;
+            margin: 0 auto;
+        }
+        section button{
+            width: 48px;
+            height: 10px;
+            cursor: pointer;
+            position: absolute;
+            border: solid 2px #292929;
+            border-radius: 11px;
+        }
+        section button.next{
+            background-color: #39B54A;
+            bottom: 106px;
+            left: 220px;
+            &:hover{
+                background-color: #1c6426;
+            }
+        }
+        section button.prev{
+            background-color: #ED1C24;
+            bottom: 106px;
+            left: 164px;
+            &:hover{
+                background-color: #750e12;
+            }
+        }
+
+        section button.stadistic{
+            background-color: transparent;
+            border-radius: 0;
+            height: 29px;
+            width: 30px;
+            border: none;
+            &:hover{
+                background-color: #333;
+            }
+        }
+        section button.prev-stadistic{
+            top: 560px;
+            left: 375px;
+        }
+        section button.next-stadistic{
+            top: 560px;
+            left: 322px;
+        }
+
+        section div.pokemon-display{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 160px;
+            left: 50%;
+            right: 50%;
+            gap: 0;
+            h3{
+                border: none;
+                &.id-pk{
                     background-color: #0009;
-                    color: #fff9;
-                    font-size: 0.8rem;
-                    display: flex;
-                    justify-content: center;
-                    width: 100%;
+                    padding: 10px;
+                    border-radius: 10px;
                 }
+                &.name-pk{
+                    font-weight: 300;
+                    letter-spacing: 4px;
+                }
+                &.attr-pk{
+                    color: #174d1e;
+                    font-size: 15px;
+                }
+            }
+            img{
+                height: auto;
+                width: auto;
+                max-width: 150px;
+                max-height: 150px;
+            }
+            div.bar{
+                width: 120px;
+                height: 10px;
+                background-color: #174d1e;
+                border-radius: 15px;
+            }
+            div.porcentaje{
+                height: 10px;
+                background-color: #158b25;
+                border-radius: 15px;
+                color: #fff9;
+                font-size: 10px;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        div.stats{
+            position: absolute;
+            top: 395px;
+            margin-right: 43px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 166px;
+            height: 65px;
+        }
+
+        section.buscar{
+            background-color: #D2232A;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: -20px;
+            h2{
+                text-align: center;
+                color: #fff;
+            }
+            input{
+                height: 25px;
+                background-color: #fff9;
+                border: 2px solid #292929;
+                border-radius: 10px;
+                text-align: center;
             }
         }
     </style>
@@ -45,35 +150,107 @@
             <h1>17- Pokedex API</h1>
             <h2>Consume API Rest.</h2>
         </header>
-        <section>
-            <iframe style="width: 100%;border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/design/X3mZ67st7MKqfM7EcceEvI/Untitled?node-id=0-1&embed-host=share" allowfullscreen></iframe>
-            <ul class="pokemons">
-            </ul>
+        <section class="container">
+            <div class="pokemon-display">
+
+            </div>
+            <button class="next"></button>
+            <button class="prev"></button>
+            <button class="next-stadistic stadistic"></button>
+            <button class="prev-stadistic stadistic"></button>
+        </section>
+        <section class="buscar">
+            <h2>Buscar pokemon</h2>
+            <input class="search-pk" type="number">
         </section>
     </main>
     <script>
-        
-        const season1 = [1, 151]
-        const season2 = [152, 251]
-        const pks = document.querySelector('.pokemons')
-        const loadPokemons = async (pk) => {
-            for (let pk = season1[0]; pk <= season2[1]; pk++) {
-                const url = 'https://pokeapi.co/api/v2/pokemon/'+ pk
-                await fetch(url)
-                .then((response) => response.json())
-                .then((data) => {
-                        if (pk < 10) {pk = '00'+pk}
-                        if (pk < 100 && pk > 9){pk = '0'+pk}
-                        console.log(data)
-                        const image    = 'https://www.serebii.net/swordshield/pokemon/'+pk+'.png'
-                        pks.innerHTML += "<li style='background: #fffa url("+image+") no-repeat center /contain'> \
-                                            <span>"+data.id+"</span> \
-                                            <span>"+data.name+"</span> \
-                                        </li>"
-                    })
+        const season = [1, 252]; // Rango de IDs de Pokémon
+        let currentPokemon = season[0]; // Pokémon inicial
+
+        const pokemonDisplay = document.querySelector('.pokemon-display');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        const nextStadistic = document.querySelector('.next-stadistic');
+        const prevStadistic = document.querySelector('.prev-stadistic');
+        const searchPk = document.querySelector('.search-pk');
+        var stadistic = 0
+
+        // Función para cargar un Pokémon por ID
+        const loadPokemon = async (id, number) => {
+            const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+            const response = await fetch(url);
+            const data = await response.json();
+            const estadistics = [
+                [data.stats[0].stat.name, data.stats[0].base_stat],
+                [data.stats[1].stat.name, data.stats[1].base_stat],
+                [data.stats[2].stat.name, data.stats[2].base_stat],
+                [data.stats[3].stat.name, data.stats[3].base_stat],
+                [data.stats[4].stat.name, data.stats[4].base_stat],
+                [data.stats[5].stat.name, data.stats[5].base_stat],
+            ];
+            
+            const paddedId = data.id;
+            const paddedStadistic = number;
+            var image = `https://www.serebii.net/swordshield/pokemon/${String(paddedId)}.png`;
+            if (paddedId < 10) {image = 'https://www.serebii.net/swordshield/pokemon/00'+String(paddedId)+".png"}
+            if (paddedId < 100 && paddedId > 9){image = 'https://www.serebii.net/swordshield/pokemon/0'+String(paddedId)+".png"}
+
+            // Actualizar la visualización del Pokémon
+            pokemonDisplay.innerHTML = `
+                <img src="${image}" alt="${data.name}">
+                <h3 class='id-pk'>#${data.id}</h3>
+                <h3 class='name-pk'>${data.name}</h3>
+                <div class='stats'>
+                    <h3 class='attr-pk'>${estadistics[paddedStadistic][0]}</h3>
+                    <div class='bar'>
+                        <div style='width: calc(1px*${estadistics[paddedStadistic][1]})' class='porcentaje'>${estadistics[paddedStadistic][1]}</div>
+                    </div>
+                </div>
+            `;
+        };
+
+        // Eventos de los botones
+        prevButton.addEventListener('click', () => {
+            if (currentPokemon > season[0]) {
+                currentPokemon--; // Decrementa el índice
+                loadPokemon(currentPokemon, stadistic);
             }
-        }
-        loadPokemons()
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (currentPokemon < season[1]) {
+                currentPokemon++; // Incrementa el índice
+                loadPokemon(currentPokemon, stadistic);
+            }
+        });
+
+        nextStadistic.addEventListener('click', () => {
+            if (stadistic < 5) {
+                stadistic++; // Incrementa el índice
+                loadPokemon(currentPokemon, stadistic);
+            }
+        });
+
+        prevStadistic.addEventListener('click', () => {
+            if (stadistic > 0) {
+                stadistic--; // Incrementa el índice
+                loadPokemon(currentPokemon, stadistic);
+            }
+        });
+
+        searchPk.addEventListener("keydown", function(event){
+            if (event.key == "Enter") {
+                if (searchPk.value > season[0] - 1 && searchPk.value <= season[1]) {
+                    currentPokemon = searchPk.value
+                    loadPokemon(currentPokemon, stadistic)
+                }
+                searchPk.value = ""
+            }
+        })
+
+        // Cargar el primer Pokémon al inicio
+        loadPokemon(currentPokemon, stadistic);
     </script>
 </body>
 </html>
