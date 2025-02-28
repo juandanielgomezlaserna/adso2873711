@@ -110,7 +110,7 @@
     <main>
         <header>
             <h1>Challenge Baloto</h1>
-            <h2>Random.</h2>
+            <h2>Electron.</h2>
         </header>
         <section class="content">
             <h2 class="titulo">Baloto</h2>
@@ -135,8 +135,12 @@
         function generarNumeros(){
             for (let i = 0; i < 6; i++) {
                 do {
-                    numero = Math.floor(Math.random() * 100)
-                } while (numeros.includes(numero));
+                    if (i == 5) {
+                        numero = Math.floor(Math.random() * 17)
+                    }else{
+                        numero = Math.floor(Math.random() * 44)
+                    }
+                } while (numeros.includes(numero) || numero == 0);
                 numeros.push(numero)
             }
         }
