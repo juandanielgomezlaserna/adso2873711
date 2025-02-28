@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge</title>
+    <link rel="stylesheet" href="css/master.css">
+    <style>
+        section.content{
+            background: url("./images/baloto/bg.png") no-repeat center;
+            width: 674px;
+            height: 773px;
+            position: relative;
+            padding: 0;
+        }
+
+        h2.titulo{
+            font-weight: 600;
+            font-size: 120px;
+            color: white;
+            position: absolute;
+            top: 0;
+            margin: 0;
+            left: 20%;
+            z-index: 1;
+        }
+        
+        img.hollow{
+            position: absolute;
+            z-index: 10;
+            left: 15%;
+            top: -3%;
+            margin: 0;
+        }
+
+        div.elipse{
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: url("images/baloto/saviavida.webp") center no-repeat #9fd6ef8a;
+            border-radius: 50%;
+            background-size: 150px;
+            background-position: -10px;
+            font-size: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        div.elipse-1{
+            left: 0%;
+            top: 54%;
+        }
+        div.elipse-2{
+            left: 18%;
+            top: 48%;
+        }
+        div.elipse-3{
+            left: 38%;
+            top: 44%;
+            z-index: 20;
+        }
+        div.elipse-4{
+            left: 58%;
+            top: 48%;
+        }
+        div.elipse-5{
+            left: 78%;
+            top: 54%;
+        }
+        div.elipse-6{
+            left: 35%;
+            top: 63%;
+            height: 200px;
+            width: 200px;
+            background: url("images/baloto/joni.webp");
+            background-size: 200px;
+            border-radius: 0;
+            font-size: 60px;
+        }
+        button.generar{
+            width: 244px;
+            height: 58px;
+            background-color: #9FD6EF;
+            border: 2px solid #284B86;
+            border-radius: 15px;
+            font-size: 40px;
+            font-weight: 600;
+            color: #284B86;
+            cursor: pointer;
+            position: absolute;
+            top: 90%;
+            left: 32%;
+            transition: all ease-in 0.2s;
+            &:hover{
+                background-color: #c6ecfd;
+                box-shadow: 0 0 15px 0 white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="controls">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1>Challenge Baloto</h1>
+            <h2>Random.</h2>
+        </header>
+        <section class="content">
+            <h2 class="titulo">Baloto</h2>
+            <img class="hollow" src="images/baloto/hollow.png" alt="">
+            <div class="elipse elipse-1"></div>
+            <div class="elipse elipse-2"></div>
+            <div class="elipse elipse-3"></div>
+            <div class="elipse elipse-4"></div>
+            <div class="elipse elipse-5"></div>
+            <div class="elipse elipse-6"></div>
+            <button class="generar">Generar</button>
+        </section>
+    </main>
+    <script>
+        //variables
+        var numeros = []
+
+        //constantes
+        const elipses = document.querySelectorAll(".elipse")
+        const btn = document.querySelector(".generar")
+
+        function generarNumeros(){
+            for (let i = 0; i < 6; i++) {
+                do {
+                    numero = Math.floor(Math.random() * 100)
+                } while (numeros.includes(numero));
+                numeros.push(numero)
+            }
+        }
+
+        btn.addEventListener("click", function(){
+            generarNumeros()
+            var contador = 0
+            elipses.forEach(elipse =>{
+                elipse.textContent = numeros[contador]
+                contador++
+            })
+            numeros = []
+        })
+
+    </script>
+</body>
+</html>
