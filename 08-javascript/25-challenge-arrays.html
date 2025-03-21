@@ -6,7 +6,122 @@
     <title>Layout</title>
     <link rel="stylesheet" href="css/master.css">
     <style>
+        body{
+            font-family: cursive;
+        }
+        section.content{
+            width: 450px;
+            height: 628px;
+            background: url("./images/arrays/bg.png") center no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .options{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 419px;
+            height: 207px;
+            border-radius: 15px;
+            background-color: #0009;
+            h2:first-child{
+                height: 20%;
+                padding: 1rem 0 0 0;
+            }
+            h2{
+                font-size: 20px;
+                margin: 0;
+            }
+        }
+        .options div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            button{
+                background: none;
+                border: none;
+                width: 25%;
+                cursor: pointer;
+            }
+        }
+        .options .line{
+            margin-top: 1rem;
+            height: 4px;
+        }
+        .options div .charms{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            gap: 10px;
+            width: 50%;
+            img{
+                width: 44px;
+                height: 44px;
+                cursor: pointer;
+                &:hover{
+                    transition: all ease-in 0.1s;
+                    transform: scale(1.2);
+                }
+            }
+        }
 
+        .array-option{
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            div{
+                font-size: 10px;
+                width: 100px;
+                height: 40px;
+                align-items: center;
+                justify-content: center;
+                border-radius: 15px;
+                background-color: #0009;
+                display: flex;
+                button{
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    img{
+                        width: 15px;
+                        height: 30px;
+                    }
+                }
+            }
+            input{
+                background: none;
+                width: 100%;
+                border: none;
+                text-align: center;
+                color: #fff;
+                font-weight: 500;
+                &:focus{
+                    border: none;
+                    outline: none;
+                }
+            }
+        }
+
+        .result-title{
+            margin-top: 2rem;
+        }
+
+        .result{
+            display: flex;
+            width: 429px;
+            height: 70px;
+            background-color: #fff9;
+            border-radius: 15px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            align-items: center;
+            img{
+                width: 44px;
+                height: 44px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -17,12 +132,176 @@
     </nav>
     <main>
         <header>
-            <h1>Layout</h1>
-            <h2>Lorem ipsum dolor sit amet.</h2>
+            <h1>Challenge</h1>
+            <h2>Hollow knigth</h2>
         </header>
         <section class="content">
-            
+            <img src="./images/arrays/logo.png" alt="" class="logo">
+            <div class="options">
+                <h2>Elige tu amuleto</h2>
+                <div>
+                    <button><img src="./images/arrays/arrow-left.png" alt=""></button>
+                    <div class="charms">
+                        <img src="./images/arrays/1.png" alt="" class="charm">
+                        <img src="./images/arrays/2.png" alt="" class="charm">
+                        <img src="./images/arrays/3.png" alt="" class="charm">
+                        <img src="./images/arrays/4.png" alt="" class="charm">
+                        <img src="./images/arrays/5.png" alt="" class="charm">
+                        <img src="./images/arrays/6.png" alt="" class="charm">
+                        <img src="./images/arrays/7.png" alt="" class="charm">
+                        <img src="./images/arrays/8.png" alt="" class="charm">
+                        <img src="./images/arrays/9.png" alt="" class="charm">
+                        <img src="./images/arrays/10.png" alt="" class="charm">
+                    </div>
+                    <button><img src="./images/arrays/arrow-rigth.png" alt=""></button>
+                </div>
+                <img class="line" src="./images/arrays/line.png" alt="">
+                <h2 class="pagina">1/4</h2>
+            </div>
+            <div class="array-option">
+                <div class="first">
+                    <button><img src="./images/arrays/arrow-left.png" alt=""></button>
+                    <h2>First</h2>
+                    <button><img src="./images/arrays/arrow-rigth.png" alt=""></button>
+                </div>
+                <div class="add">
+                    <button><img src="./images/arrays/arrow-left.png" alt=""></button>
+                    <h2>add</h2>
+                    <button><img src="./images/arrays/arrow-rigth.png" alt=""></button>
+                </div>
+                <div class="index">
+                    <input type="number" placeholder="index">
+                </div>
+            </div>
+            <h2 class="result-title">Amuletos</h2>
+            <div class="result">
+            </div>
         </section>
     </main>
+    <script>
+        //elements
+        const img = document.querySelectorAll(".charm")
+        const btnArrow = document.querySelectorAll("div button")
+        const paginaTxt = document.querySelector(".pagina")
+        const result = document.querySelector(".result")
+        const inpt = document.querySelector("input")
+        const arrayOption = document.querySelector(".array-option")
+        //variables
+        let pagina = 0
+        let paginas = [[1,2,3,4,5,6,7,8,9,10],[11,12,13,14,15,16,17,18,19,20],[21,22,23,24,25,26,27,28,29,30],[31,32,33,34,35,36,37,38,39,40]]
+        let resultado = []
+        let first = "first"
+        let add = "add"
+        let index = resultado.length - 1
+        let option = ""
+
+        btnArrow[1].addEventListener("click", function(){
+            if (pagina < 3) {
+                deseleccionar()
+                let contador = 0
+                pagina++
+                for (let i = 0; i < img.length; i++) {
+                    img[i].src = "./images/arrays/" + paginas[pagina][i] + ".png"
+                }
+                paginaTxt.textContent = (pagina + 1) + "/4"
+            }
+        })
+
+        btnArrow[0].addEventListener("click", function(){
+            if (pagina > 0) {
+                deseleccionar()
+                let contador = 0
+                pagina--
+                for (let i = 0; i < img.length; i++) {
+                    img[i].src = "./images/arrays/" + paginas[pagina][i] + ".png"
+                }
+                paginaTxt.textContent = (pagina + 1) + "/4"
+            }
+        })
+
+        btnArrow[2].addEventListener("click", function(){
+            if (first == "first") {
+                first = "end"
+            }else{
+                first = "first"
+            }
+            arrayOption.children[0].children[1].textContent = first
+        })
+
+        btnArrow[3].addEventListener("click", function(){
+            if (first == "first") {
+                first = "end"
+            }else{
+                first = "first"
+            }
+            arrayOption.children[0].children[1].textContent = first
+        })
+
+        btnArrow[4].addEventListener("click", function(){
+            if (add == "add") {
+                add = "delete"
+            }else{
+                add = "add"
+            }
+            arrayOption.children[1].children[1].textContent = add
+        })
+
+        btnArrow[5].addEventListener("click", function(){
+            if (add == "add") {
+                add = "delete"
+            }else{
+                add = "add"
+            }
+            arrayOption.children[1].children[1].textContent = add
+        })
+
+        for (let i = 0; i < img.length; i++) {
+            img[i].addEventListener("click", function(){
+                option = img[i].src
+                deseleccionar()
+                img[i].style.transform = "scale(1.2)"
+            })
+        }
+
+        document.addEventListener("keydown", function(event){
+            if(event.key == "Enter"){
+                result.innerHTML = ""
+                if (inpt.value != "") {
+                    index = parseInt(inpt.value)
+                    if (index < resultado.length && index > 0) {
+                        if (add == "add") {
+                            resultado.splice(index, 0, option)
+                        }
+                        else{
+                            resultado.splice(index, 1)
+                        }
+                    }
+                }else{
+                    if (first == "first") {
+                        if (add == "add") {
+                            resultado.splice(0, 0, option)
+                        }else{
+                            resultado.splice(0, 1)
+                        }
+                    }else{
+                        if (add == "add") {
+                            resultado.push(option)
+                        }else{
+                            resultado.pop()
+                        }
+                    }
+                }
+                for (let i = 0; i < resultado.length; i++) {
+                    result.innerHTML += "<img src='" + resultado[i] + "'>"
+                }
+            }
+        })
+
+        function deseleccionar() {
+            for (let i = 0; i < img.length; i++) {
+                img[i].style.transform = "scale(1)"
+            }
+        }
+    </script>
 </body>
 </html>
