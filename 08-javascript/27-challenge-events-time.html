@@ -346,75 +346,75 @@
     </section>    
       
     <script>
-        // Elementos comunes
-        const pantallaInicio = document.querySelector(".content");
-        const pantallaInstrucciones = document.querySelector(".instructions");
-        const pantallaCreditos = document.querySelector(".credits");
-        const pantallaHistoria = document.querySelector(".historia");
-        const botonesSuperiores = document.querySelector(".top-buttons");
+        // Elements
+        const pantallaInicio = document.querySelector(".content")
+        const pantallaInstrucciones = document.querySelector(".instructions")
+        const pantallaCreditos = document.querySelector(".credits")
+        const pantallaHistoria = document.querySelector(".historia")
+        const botonesSuperiores = document.querySelector(".top-buttons")
     
-        const logo = document.querySelector(".logo");
-        const btnStart = document.querySelector(".start");
+        const logo = document.querySelector(".logo")
+        const btnStart = document.querySelector(".start")
+
+        const btnInstrucciones = document.querySelector('button[title="Instrucciones"]')
+        const btnCreditos = document.querySelector('button[title="Créditos"]')
+        const btnHistoria = document.querySelector('button[title="Historia"]')
     
-        const btnInstrucciones = document.querySelector('button[title="Instrucciones"]');
-        const btnCreditos = document.querySelector('button[title="Créditos"]');
-        const btnHistoria = document.querySelector('button[title="Historia"]');
-    
-        const btnVolverInstrucciones = document.querySelector(".back-btn");
-        const btnVolverCreditos = document.querySelector(".back-credits-btn");
-        const btnVolverHistoria = document.querySelector(".back-historia-btn");
+        const btnVolverInstrucciones = document.querySelector(".back-btn")
+        const btnVolverCreditos = document.querySelector(".back-credits-btn")
+        const btnVolverHistoria = document.querySelector(".back-historia-btn")
     
         function mostrarSeccion(activa) {
-            const secciones = [pantallaInicio, pantallaInstrucciones, pantallaCreditos, pantallaHistoria];
+            const secciones = [pantallaInicio, pantallaInstrucciones, pantallaCreditos, pantallaHistoria]
             secciones.forEach(seccion => {
-                seccion.classList.toggle("hidden", seccion !== activa);
+                seccion.classList.toggle("hidden", seccion !== activa)
             });
         }
     
-        const seccionJuego = document.querySelector(".juego");
-        const seccionContent = document.querySelector(".content");
+        const seccionJuego = document.querySelector(".juego")
+        const seccionContent = document.querySelector(".content")
     
         // Posiciones iniciales
-        let posAmarillo = { x: 0, y: 0 };
-        let posNegro = { x: 300, y: 300 };
-        const velocidad = 4;
-        const anchoJugador = 40;
-        const altoJugador = 40;
+        let posAmarillo = { x: 0, y: 0 }
+        let posNegro = { x: 300, y: 300 }
+        const velocidad = 4
+        const anchoJugador = 40
+        const altoJugador = 40
     
-        // Referencias a jugadores
-        const jugadorAmarillo = document.querySelector(".jugador-amarillo");
-        const jugadorNegro = document.querySelector(".jugador-negro");
+        // jugadores
+        const jugadorAmarillo = document.querySelector(".jugador-amarillo")
+        const jugadorNegro = document.querySelector(".jugador-negro")
     
-        jugadorAmarillo.style.left = posAmarillo.x + "px";
-        jugadorAmarillo.style.top = posAmarillo.y + "px";
-        jugadorNegro.style.left = posNegro.x + "px";
-        jugadorNegro.style.top = posNegro.y + "px";
-    
-        let anchoJuego = 0;
-        let altoJuego = 0;
+        jugadorAmarillo.style.left = posAmarillo.x + "px"
+        jugadorAmarillo.style.top = posAmarillo.y + "px"
+        jugadorNegro.style.left = posNegro.x + "px"
+        jugadorNegro.style.top = posNegro.y + "px"
+
+        let anchoJuego = 0
+        let altoJuego = 0
 
         //temporizador
-        let tiempoRestante = 30;
-        let temporizadorIntervalo;
+        let tiempoRestante = 30
+        let temporizadorIntervalo
     
-        // START
+        // events and functions
         btnStart.addEventListener("click", () => {
-            logo.classList.add("ocultar-suave");
-            btnStart.classList.add("ocultar-suave");
-            botonesSuperiores.classList.add("ocultar-suave");
+            logo.classList.add("ocultar-suave")
+            btnStart.classList.add("ocultar-suave")
+            botonesSuperiores.classList.add("ocultar-suave")
     
             setTimeout(() => {
-                seccionContent.style.backgroundImage = "url('./images/sand/Homepage1.png')";
-                seccionJuego.classList.remove("hidden");
-                seccionJuego.classList.add("activa");
+                seccionContent.style.backgroundImage = "url('./images/sand/Homepage1.png')"
+                seccionJuego.classList.remove("hidden")
+                seccionJuego.classList.add("activa")
                 
-                anchoJuego = 480;
-                altoJuego = 1000;
+                anchoJuego = 480
+                altoJuego = 1000
 
                 actualizarContador()
-                temporizadorIntervalo = setInterval(actualizarContador, 1000); // Actualiza cada segundo
-            }, 600);
-        });
+                temporizadorIntervalo = setInterval(actualizarContador, 1000) // Actualiza cada segundo
+            }, 600)
+        })
         
         function detectarColision(rect1, rect2) {
             return !(
@@ -426,108 +426,106 @@
         }
 
         function resetearJuego() {
-            // Resetear las posiciones de los jugadores
-            posAmarillo = { x: 0, y: 0 };
-            posNegro = { x: 300, y: 300 };
+            // Resetear las posiciones
+            posAmarillo = { x: 0, y: 0 }
+            posNegro = { x: 300, y: 300 }
             
-            // Volver a las posiciones iniciales en pantalla
-            jugadorAmarillo.style.left = posAmarillo.x + "px";
-            jugadorAmarillo.style.top = posAmarillo.y + "px";
-            jugadorNegro.style.left = posNegro.x + "px";
-            jugadorNegro.style.top = posNegro.y + "px";
+            jugadorAmarillo.style.left = posAmarillo.x + "px"
+            jugadorAmarillo.style.top = posAmarillo.y + "px"
+            jugadorNegro.style.left = posNegro.x + "px"
+            jugadorNegro.style.top = posNegro.y + "px"
 
-            clearInterval(temporizadorIntervalo);
-            location.reload();
+            location.reload()
         }
 
         function actualizarContador() {
-            const contador = document.querySelector(".contador"); // Asegúrate de tener un elemento para mostrar el contador
+            const contador = document.querySelector(".contador");
             if (contador) {
-                contador.textContent = `Tiempo restante: ${tiempoRestante}s`;
+                contador.textContent = `Tiempo restante: ${tiempoRestante}s`
             }
 
             if (tiempoRestante <= 0) {
                 clearInterval(temporizadorIntervalo);
-                alert("¡El jugador amarillo ha sobrevivido 30 segundos y gana!");
-                mostrarSeccion(pantallaInicio);
-                resetearJuego();
+                alert("¡El jugador amarillo ha sobrevivido 30 segundos y gana!")
+                mostrarSeccion(pantallaInicio)
+                resetearJuego()
             } else {
-                tiempoRestante--;
+                tiempoRestante--
             }
         }
 
         // INSTRUCCIONES
-        btnInstrucciones.addEventListener("click", () => mostrarSeccion(pantallaInstrucciones));
-        btnVolverInstrucciones.addEventListener("click", () => mostrarSeccion(pantallaInicio));
+        btnInstrucciones.addEventListener("click", () => mostrarSeccion(pantallaInstrucciones))
+        btnVolverInstrucciones.addEventListener("click", () => mostrarSeccion(pantallaInicio))
     
         // CRÉDITOS
-        btnCreditos.addEventListener("click", () => mostrarSeccion(pantallaCreditos));
-        btnVolverCreditos.addEventListener("click", () => mostrarSeccion(pantallaInicio));
+        btnCreditos.addEventListener("click", () => mostrarSeccion(pantallaCreditos))
+        btnVolverCreditos.addEventListener("click", () => mostrarSeccion(pantallaInicio))
     
         // HISTORIA
-        btnHistoria.addEventListener("click", () => mostrarSeccion(pantallaHistoria));
-        btnVolverHistoria.addEventListener("click", () => mostrarSeccion(pantallaInicio));
+        btnHistoria.addEventListener("click", () => mostrarSeccion(pantallaHistoria))
+        btnVolverHistoria.addEventListener("click", () => mostrarSeccion(pantallaInicio))
     
-        // Movimiento de jugadores
-        let teclasPresionadas = {};
-        document.addEventListener("keydown", (e) => teclasPresionadas[e.key.toLowerCase()] = true);
-        document.addEventListener("keyup", (e) => teclasPresionadas[e.key.toLowerCase()] = false);
+        // Movimiento
+        let teclasPresionadas = {}
+        document.addEventListener("keydown", (e) => teclasPresionadas[e.key.toLowerCase()] = true)
+        document.addEventListener("keyup", (e) => teclasPresionadas[e.key.toLowerCase()] = false)
     
-        // Bucle de juego
+        // Lógica del juego
         setInterval(() => {
-            if (anchoJuego === 0 || altoJuego === 0) return; // No hacer nada hasta que tengamos medidas
+            if (anchoJuego === 0 || altoJuego === 0) return
     
-            // Jugador Amarillo (WASD)
-            if (teclasPresionadas["w"]) posAmarillo.y -= velocidad;
-            if (teclasPresionadas["s"]) posAmarillo.y += velocidad;
-            if (teclasPresionadas["a"]) posAmarillo.x -= velocidad;
-            if (teclasPresionadas["d"]) posAmarillo.x += velocidad;
+            // Jugador Amarillo
+            if (teclasPresionadas["w"]) posAmarillo.y -= velocidad
+            if (teclasPresionadas["s"]) posAmarillo.y += velocidad
+            if (teclasPresionadas["a"]) posAmarillo.x -= velocidad
+            if (teclasPresionadas["d"]) posAmarillo.x += velocidad
     
-            // Jugador Negro (Flechas)
-            if (teclasPresionadas["arrowup"]) posNegro.y -= velocidad;
-            if (teclasPresionadas["arrowdown"]) posNegro.y += velocidad;
-            if (teclasPresionadas["arrowleft"]) posNegro.x -= velocidad;
-            if (teclasPresionadas["arrowright"]) posNegro.x += velocidad;
+            // Jugador Negro
+            if (teclasPresionadas["arrowup"]) posNegro.y -= velocidad
+            if (teclasPresionadas["arrowdown"]) posNegro.y += velocidad
+            if (teclasPresionadas["arrowleft"]) posNegro.x -= velocidad
+            if (teclasPresionadas["arrowright"]) posNegro.x += velocidad
     
-            // Limitar y teletransportar (pantalla infinita)
-            if (posAmarillo.x < -50) posAmarillo.x = anchoJuego - anchoJugador + 49;
-            if (posAmarillo.x + anchoJugador > anchoJuego + 50) posAmarillo.x = -50;
-            if (posAmarillo.y < -50) posAmarillo.y = altoJuego - altoJugador + 49;
-            if (posAmarillo.y + altoJugador > altoJuego + 50) posAmarillo.y = -50;
+            // entrar por un lado y salir por el otro
+            if (posAmarillo.x < -50) posAmarillo.x = anchoJuego - anchoJugador + 49
+            if (posAmarillo.x + anchoJugador > anchoJuego + 50) posAmarillo.x = -50
+            if (posAmarillo.y < -50) posAmarillo.y = altoJuego - altoJugador + 49
+            if (posAmarillo.y + altoJugador > altoJuego + 50) posAmarillo.y = -50
     
-            if (posNegro.x < -50) posNegro.x = anchoJuego - anchoJugador + 49;
-            if (posNegro.x + anchoJugador > anchoJuego + 50) posNegro.x = -50;
-            if (posNegro.y < -50) posNegro.y = altoJuego - altoJugador + 49;
-            if (posNegro.y + altoJugador > altoJuego + 50) posNegro.y = -50;
+            if (posNegro.x < -50) posNegro.x = anchoJuego - anchoJugador + 49
+            if (posNegro.x + anchoJugador > anchoJuego + 50) posNegro.x = -50
+            if (posNegro.y < -50) posNegro.y = altoJuego - altoJugador + 49
+            if (posNegro.y + altoJugador > altoJuego + 50) posNegro.y = -50
     
-            jugadorAmarillo.style.left = posAmarillo.x + "px";
-            jugadorAmarillo.style.top = posAmarillo.y + "px";
+            jugadorAmarillo.style.left = posAmarillo.x + "px"
+            jugadorAmarillo.style.top = posAmarillo.y + "px"
     
-            jugadorNegro.style.left = posNegro.x + "px";
-            jugadorNegro.style.top = posNegro.y + "px";
+            jugadorNegro.style.left = posNegro.x + "px"
+            jugadorNegro.style.top = posNegro.y + "px"
 
-            // Crear los rectángulos de colisión
+            // colisiones rectangulos
             const rectAmarillo = {
             x: posAmarillo.x,
             y: posAmarillo.y,
             width: anchoJugador,
             height: altoJugador
-            };
+            }
 
             const rectNegro = {
             x: posNegro.x,
             y: posNegro.y,
             width: anchoJugador,
             height: altoJugador
-            };
+            }
 
             // Detectar colisión
             if (detectarColision(rectAmarillo, rectNegro)) {
-                alert("¡El jugador negro atrapó al amarillo!");
-                resetearJuego();
+                alert("¡El jugador negro atrapó al amarillo!")
+                resetearJuego()
             }
 
-        }, 20);
+        }, 20)
     </script>
     
 </body>
