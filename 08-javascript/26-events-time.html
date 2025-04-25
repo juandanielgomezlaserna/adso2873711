@@ -43,13 +43,14 @@
             width: 380px;
             border-radius: 10px;
             position: relative;
+            overflow: hidden;
 
             img.nave{
                 position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
+                left: 140px;
+                top: 140px;
                 width: 200px;
+                transition: all ease-in 0.2s;
             }
         }
     </style>
@@ -113,16 +114,38 @@
         })
 
         // Event KeyUp
-        document.addEventListener("keyup", (event) =>{
-            if (event.keyCode == 37) {
-                alert("left")
-            }
-            if (event.keyCode == 39) {
-                alert("rigth")
-            }
-            // 37 left
+        const nave = document.querySelector(".nave")
+        let leftPosition = 140
 
-            //39 rigth
+        document.addEventListener("keyup", (event) =>{
+            if (event.keyCode == 37) { // left
+                if (leftPosition > -180) {
+                    leftPosition -= 40
+                    nave.style.transform = "rotateY(180deg)"
+                    nave.style.left = `${leftPosition}px`
+                }else{
+                    leftPosition = 360
+                    nave.style.display = "none"
+                    setTimeout(() =>{
+                        nave.style.display = "block"
+                    }, 200)
+                    nave.style.left = `${leftPosition}px`
+                }
+            }
+            if (event.keyCode == 39) { // rigth
+                if (leftPosition <= 360) {
+                    leftPosition += 40
+                    nave.style.transform = "rotateY(0deg)"
+                    nave.style.left = `${leftPosition}px`
+                }else{
+                    leftPosition = -180
+                    nave.style.display = "none"
+                    setTimeout(() =>{
+                        nave.style.display = "block"
+                    }, 200)
+                    nave.style.left = `${leftPosition}px`
+                }
+            }
         })
     </script>
 </body>

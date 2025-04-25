@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sand Escape</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        body {
+            background: url('./images/sand/BG-1.png') center center / cover no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        section.content {
+            background: url("./images/sand/bg-2.png");
+            width: 480px;
+            height: 1000px;
+            margin: 0 auto;
+            position: relative;
+            transform: scale(0.9);
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            transition: background-image 1.2s ease-in-out;
+        }
+
+        .logo {
+            transition: all ease-in 2s;
+        }
+
+        .fade-in {
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        button.start {
+            padding: 0.5rem 4rem;
+            background-color: yellow;
+            border: none;
+            cursor: pointer;
+            font-size: 35px;
+            margin-top: 5rem;
+            border-radius: 2rem;
+            font-weight: 500;
+            font-family: fantasy;
+            letter-spacing: 2px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .top-buttons {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            right: 30px;
+            display: flex;
+            justify-content: start;
+            padding: 0 1rem;
+            gap: 1rem;
+        }
+
+        .top-buttons button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: yellow;
+            color: #000;
+            border: none;
+            font-size: 22px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .top-buttons button:hover {
+            transform: scale(1.1);
+        }
+
+        section.instructions {
+            background: url("./images/sand/bg-2.png");
+            width: 480px;
+            height: 1000px;
+            margin: 0 auto;
+            transform: scale(0.9);
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+            .instructions h2 {
+            font-size: 28px;
+            color: yellow;
+            margin-bottom: 1rem;
+        }
+
+            .instructions p {
+            font-size: 18px;
+            line-height: 1.6;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 1rem;
+            border-radius: 12px;
+        }
+
+            .back-btn {
+            font-family: 'Press Start 2P', cursive;
+            margin-top: 2rem;
+            padding: 0.5rem 2rem;
+            background: yellow;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 3px 0 black;
+        }
+
+        section.credits {
+            background: url("./images/sand/bg-2.png");
+            width: 480px;
+            height: 1000px;
+            margin: 0 auto;
+            transform: scale(0.9);
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .credits h2 {
+            font-size: 28px;
+            color: yellow;
+            margin-bottom: 1rem;
+        }
+
+        .credits p {
+            font-size: 14px;
+            line-height: 1.6;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 12px;
+        }
+
+        .back-credits-btn {
+            margin-top: 2rem;
+            padding: 0.5rem 2rem;
+            background: yellow;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 3px 0 black;
+        }
+
+        section.historia {
+            background: url("./images/sand/bg-2.png");
+            width: 480px;
+            height: 1000px;
+            margin: 0 auto;
+            transform: scale(0.9);
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+            .historia h2 {
+            font-size: 24px;
+            color: yellow;
+            margin-bottom: 1rem;
+            }
+
+            .historia p {
+            font-size: 14px;
+            line-height: 1.6;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 12px;
+            }
+
+            .back-historia-btn {
+            margin-top: 2rem;
+            padding: 0.5rem 2rem;
+            background: yellow;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 3px 0 black;
+            }
+
+            section.juego {
+            width: 480px;
+            height: 1000px;
+            margin: 0 auto;
+            position: absolute;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Press Start 2P', cursive;
+            color: white;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s ease;
+            }
+
+            section.juego.activa {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+
+            @keyframes fadeOutFast {
+            from {
+                opacity: 1;
+                transform: scale(1);
+            }
+            to {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            }
+
+            .ocultar-suave {
+            animation: fadeOutFast 0.6s ease-in-out forwards;
+            pointer-events: none;
+            }
+
+            .jugador {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            }
+
+            .jugador-amarillo {
+            background-color: yellow;
+            border: 2px solid #000;
+            top: 0px;
+            left: 0px;
+            }
+
+            .jugador-negro {
+            background-color: black;
+            border: 2px solid yellow;
+            top: 300px;
+            left: 300px;
+            }
+
+            .contador{
+                position: absolute;
+                top: 900px;
+            }
+
+    </style>
+</head>
+<body>
+    <section class="content">
+        <div class="top-buttons">
+            <button title="Instrucciones"><i class="fas fa-clipboard"></i></button>
+            <button title="Historia"><i class="fas fa-film"></i></button>
+            <button title="Créditos"><i class="fas fa-info-circle"></i></button>
+        </div>
+        <img class="logo fade-in" src="./images/sand/logo.png" alt="Logo del juego">
+        <button class="start fade-in">START</button>
+        <section class="juego hidden">
+            <h2 class="contador"></h2>
+            <div class="jugador jugador-amarillo"></div>
+            <div class="jugador jugador-negro"></div>
+          </section>  
+    </section>
+
+    <section class="instructions hidden">
+        <h2>¿Cómo jugar?</h2>
+        <p>
+          El jugador amarillo se mueve con <strong>W, A, S, D</strong><br>
+          El jugador negro se mueve con las <strong>flechas del teclado</strong><br><br>
+          El objetivo del jugador negro es atrapar al amarillo.<br>
+          Y del jugador amarillo es sobrevivir 30 segundos para poder huir <br><br>
+          ¡Corre antes de que te alcancen!
+        </p>
+        <button class="back-btn">Volver</button>
+    </section>
+    
+    <section class="credits hidden">
+        <h2>Créditos</h2>
+        <p>
+          <strong>Juan Daniel Gómez</strong><br>
+          se encargó de la lógica y la jugabilidad.
+        </p>
+        <p>
+          <strong>Simón Cardona</strong><br>
+          fue responsable del diseño visual.
+        </p>
+        <button class="back-credits-btn">Volver</button>
+    </section>
+      
+    <section class="historia hidden">
+        <h2>Historia</h2>
+        <p>
+            El hombre negro es un ciudadano común que observa con preocupación cómo el hombre de arena invade la ciudad,
+            cubriendo todo a su paso. Su misión es atraparlo antes de que el caos sea imparable.
+        </p>
+        <p>
+            Pero el hombre de arena no actúa por maldad. Él desea expandir su reino natural, cubriendo las construcciones del hombre
+            con arena, permitiendo que resurja la vida, que florezca la naturaleza y que vuelva el equilibrio.
+        </p>
+        <p>
+            Es un enfrentamiento entre dos mundos: la naturaleza contra el ser humano. ¿Quién ganará?
+        </p>
+        <button class="back-historia-btn">Volver</button>
+    </section>    
+      
+    <script>
+        // Elementos comunes
+        const pantallaInicio = document.querySelector(".content");
+        const pantallaInstrucciones = document.querySelector(".instructions");
+        const pantallaCreditos = document.querySelector(".credits");
+        const pantallaHistoria = document.querySelector(".historia");
+        const botonesSuperiores = document.querySelector(".top-buttons");
+    
+        const logo = document.querySelector(".logo");
+        const btnStart = document.querySelector(".start");
+    
+        const btnInstrucciones = document.querySelector('button[title="Instrucciones"]');
+        const btnCreditos = document.querySelector('button[title="Créditos"]');
+        const btnHistoria = document.querySelector('button[title="Historia"]');
+    
+        const btnVolverInstrucciones = document.querySelector(".back-btn");
+        const btnVolverCreditos = document.querySelector(".back-credits-btn");
+        const btnVolverHistoria = document.querySelector(".back-historia-btn");
+    
+        function mostrarSeccion(activa) {
+            const secciones = [pantallaInicio, pantallaInstrucciones, pantallaCreditos, pantallaHistoria];
+            secciones.forEach(seccion => {
+                seccion.classList.toggle("hidden", seccion !== activa);
+            });
+        }
+    
+        const seccionJuego = document.querySelector(".juego");
+        const seccionContent = document.querySelector(".content");
+    
+        // Posiciones iniciales
+        let posAmarillo = { x: 0, y: 0 };
+        let posNegro = { x: 300, y: 300 };
+        const velocidad = 4;
+        const anchoJugador = 40;
+        const altoJugador = 40;
+    
+        // Referencias a jugadores
+        const jugadorAmarillo = document.querySelector(".jugador-amarillo");
+        const jugadorNegro = document.querySelector(".jugador-negro");
+    
+        jugadorAmarillo.style.left = posAmarillo.x + "px";
+        jugadorAmarillo.style.top = posAmarillo.y + "px";
+        jugadorNegro.style.left = posNegro.x + "px";
+        jugadorNegro.style.top = posNegro.y + "px";
+    
+        let anchoJuego = 0;
+        let altoJuego = 0;
+
+        //temporizador
+        let tiempoRestante = 30;
+        let temporizadorIntervalo;
+    
+        // START
+        btnStart.addEventListener("click", () => {
+            logo.classList.add("ocultar-suave");
+            btnStart.classList.add("ocultar-suave");
+            botonesSuperiores.classList.add("ocultar-suave");
+    
+            setTimeout(() => {
+                seccionContent.style.backgroundImage = "url('./images/sand/Homepage1.png')";
+                seccionJuego.classList.remove("hidden");
+                seccionJuego.classList.add("activa");
+                
+                anchoJuego = 480;
+                altoJuego = 1000;
+
+                actualizarContador()
+                temporizadorIntervalo = setInterval(actualizarContador, 1000); // Actualiza cada segundo
+            }, 600);
+        });
+        
+        function detectarColision(rect1, rect2) {
+            return !(
+                rect1.x + rect1.width < rect2.x ||
+                rect1.x > rect2.x + rect2.width ||
+                rect1.y + rect1.height < rect2.y ||
+                rect1.y > rect2.y + rect2.height
+            );
+        }
+
+        function resetearJuego() {
+            // Resetear las posiciones de los jugadores
+            posAmarillo = { x: 0, y: 0 };
+            posNegro = { x: 300, y: 300 };
+            
+            // Volver a las posiciones iniciales en pantalla
+            jugadorAmarillo.style.left = posAmarillo.x + "px";
+            jugadorAmarillo.style.top = posAmarillo.y + "px";
+            jugadorNegro.style.left = posNegro.x + "px";
+            jugadorNegro.style.top = posNegro.y + "px";
+
+            clearInterval(temporizadorIntervalo);
+            location.reload();
+        }
+
+        function actualizarContador() {
+            const contador = document.querySelector(".contador"); // Asegúrate de tener un elemento para mostrar el contador
+            if (contador) {
+                contador.textContent = `Tiempo restante: ${tiempoRestante}s`;
+            }
+
+            if (tiempoRestante <= 0) {
+                clearInterval(temporizadorIntervalo);
+                alert("¡El jugador amarillo ha sobrevivido 30 segundos y gana!");
+                mostrarSeccion(pantallaInicio);
+                resetearJuego();
+            } else {
+                tiempoRestante--;
+            }
+        }
+
+        // INSTRUCCIONES
+        btnInstrucciones.addEventListener("click", () => mostrarSeccion(pantallaInstrucciones));
+        btnVolverInstrucciones.addEventListener("click", () => mostrarSeccion(pantallaInicio));
+    
+        // CRÉDITOS
+        btnCreditos.addEventListener("click", () => mostrarSeccion(pantallaCreditos));
+        btnVolverCreditos.addEventListener("click", () => mostrarSeccion(pantallaInicio));
+    
+        // HISTORIA
+        btnHistoria.addEventListener("click", () => mostrarSeccion(pantallaHistoria));
+        btnVolverHistoria.addEventListener("click", () => mostrarSeccion(pantallaInicio));
+    
+        // Movimiento de jugadores
+        let teclasPresionadas = {};
+        document.addEventListener("keydown", (e) => teclasPresionadas[e.key.toLowerCase()] = true);
+        document.addEventListener("keyup", (e) => teclasPresionadas[e.key.toLowerCase()] = false);
+    
+        // Bucle de juego
+        setInterval(() => {
+            if (anchoJuego === 0 || altoJuego === 0) return; // No hacer nada hasta que tengamos medidas
+    
+            // Jugador Amarillo (WASD)
+            if (teclasPresionadas["w"]) posAmarillo.y -= velocidad;
+            if (teclasPresionadas["s"]) posAmarillo.y += velocidad;
+            if (teclasPresionadas["a"]) posAmarillo.x -= velocidad;
+            if (teclasPresionadas["d"]) posAmarillo.x += velocidad;
+    
+            // Jugador Negro (Flechas)
+            if (teclasPresionadas["arrowup"]) posNegro.y -= velocidad;
+            if (teclasPresionadas["arrowdown"]) posNegro.y += velocidad;
+            if (teclasPresionadas["arrowleft"]) posNegro.x -= velocidad;
+            if (teclasPresionadas["arrowright"]) posNegro.x += velocidad;
+    
+            // Limitar y teletransportar (pantalla infinita)
+            if (posAmarillo.x < -50) posAmarillo.x = anchoJuego - anchoJugador + 49;
+            if (posAmarillo.x + anchoJugador > anchoJuego + 50) posAmarillo.x = -50;
+            if (posAmarillo.y < -50) posAmarillo.y = altoJuego - altoJugador + 49;
+            if (posAmarillo.y + altoJugador > altoJuego + 50) posAmarillo.y = -50;
+    
+            if (posNegro.x < -50) posNegro.x = anchoJuego - anchoJugador + 49;
+            if (posNegro.x + anchoJugador > anchoJuego + 50) posNegro.x = -50;
+            if (posNegro.y < -50) posNegro.y = altoJuego - altoJugador + 49;
+            if (posNegro.y + altoJugador > altoJuego + 50) posNegro.y = -50;
+    
+            jugadorAmarillo.style.left = posAmarillo.x + "px";
+            jugadorAmarillo.style.top = posAmarillo.y + "px";
+    
+            jugadorNegro.style.left = posNegro.x + "px";
+            jugadorNegro.style.top = posNegro.y + "px";
+
+            // Crear los rectángulos de colisión
+            const rectAmarillo = {
+            x: posAmarillo.x,
+            y: posAmarillo.y,
+            width: anchoJugador,
+            height: altoJugador
+            };
+
+            const rectNegro = {
+            x: posNegro.x,
+            y: posNegro.y,
+            width: anchoJugador,
+            height: altoJugador
+            };
+
+            // Detectar colisión
+            if (detectarColision(rectAmarillo, rectNegro)) {
+                alert("¡El jugador negro atrapó al amarillo!");
+                resetearJuego();
+            }
+
+        }, 20);
+    </script>
+    
+</body>
+</html>
